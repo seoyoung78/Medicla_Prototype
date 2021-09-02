@@ -1,9 +1,14 @@
 function MedicalMemo () {
   return(
-    <div>
-      <div>진료메모</div>
-      <div>
-        <input placeholder="진료메모를 입력하세요."></input>
+    <div className="section">
+      <div className="panel shadow fx1">
+        <div>
+          <img src="./imgs/memo.png" alt=""/>
+          <span>진료메모</span>      
+        </div>
+        <div>
+          <input className="" placeholder="진료메모를 입력하세요."></input>
+        </div>
       </div>
     </div>
   )

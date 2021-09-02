@@ -7,9 +7,12 @@ function SubHeader() {
   return (
     <div className="sub-header">
       <div className="left">
-        <button>
-          
+        <button type="button" className="btn-menu" onClick={() => setNavi(!navi)}>
+          <span className="meterial-icons">메뉴</span>
         </button>
+        <span className="svg-title">
+          <h2>진료</h2>
+        </span>
       </div>
       <div className="right">
 
