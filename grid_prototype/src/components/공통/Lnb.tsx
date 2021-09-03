@@ -1,9 +1,6 @@
 import { useState } from "react";
-import { useRecoilValue } from "recoil"
-import { naviState } from "../../atoms/Recoils_진료"
 
 export default function Lnb() {
-  const navi = useRecoilValue<boolean>(naviState);
   const [open, setOpen] = useState<Boolean>(false);
 
   return (
