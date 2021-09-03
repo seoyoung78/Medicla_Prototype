@@ -14,15 +14,23 @@ import PrescriptionInquiry from './components/진료/PrescriptionInquiry';
 import ProgressNote from './components/진료/ProgressNote';
 import Diagnosis from './components/진료/Diagnosis';
 import Prescription from './components/진료/Prescription';
+import Lnb from './components/공통/Lnb';
+import { useRecoilState } from 'recoil';
+import { naviState } from './atoms/Recoils_진료';
 
 function App() {
+  const [navi, setNavi] = useRecoilState<boolean>(naviState);
+
   return (
     <div className="his">
       <Gnb/>
       <Header/>
-      <div className="container">
+
+      <div className={navi ?  "container open-lnb" : "container"}>
         <SubHeader/>
+        <Lnb/>
         <CommonLine/>
+
         <div className="his-content">
           <div className="section-wrap">
             <div className="col">
@@ -49,6 +57,8 @@ function App() {
             </div>
           </div>
         </div>
+
+        <div className="dimmed" onClick={() => setNavi(false) }></div>
       </div>
     </div>
   );

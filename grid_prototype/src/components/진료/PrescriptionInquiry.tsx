@@ -5,6 +5,7 @@ export default function PrescriptionInquiry() {
         <div>
           <img src="./imgs/order.png" alt=""></img>
           <span>처방조회</span>
+          <button><img src="./imgs/setting.png" alt=""></img></button>
         </div>
         <div>
           탭 + 그리드

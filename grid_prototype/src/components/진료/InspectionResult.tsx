@@ -5,6 +5,7 @@ export default function InspectionResult() {
         <div>
           <img src="./imgs/lab.png" alt=""/>
           <span>검사결과</span>
+          <button><img src="./imgs/setting.png" alt=""></img></button>
         </div>
         <div>
           그리드 
