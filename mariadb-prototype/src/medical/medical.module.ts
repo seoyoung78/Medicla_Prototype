@@ -5,7 +5,7 @@ import { MedicalService } from './medical.service';
 
 
 @Module({
-  // imports: [TypeOrmModule.forFeature([Consigment])],   //Entity 인식 못 함...
+  // imports: [TypeOrmModule.forFeature([Consigment])],   //Entity 인식  못 함...
   imports: [TypeOrmModule.forFeature([])],
   controllers: [MedicalController],
   providers: [MedicalService]
