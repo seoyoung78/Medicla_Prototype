@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { Crprsccdmt } from '../entities/Crprsccdmt';
 
 @Injectable()
 export class MedicalService {
   constructor(
-    // @InjectRepository(Czcomcodmt) private CzcRepository: Repository<Czcomcodmt>,
+    @InjectRepository(Crprsccdmt) private CrprsccdmRepository: Repository<Crprsccdmt>,
   ) {}
 
   // async getAll(): Promise<any[]> {
