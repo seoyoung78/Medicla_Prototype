@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Czcomcodmt } from '../entities/Czcomcodmt';
 
 @Injectable()
 export class MedicalService {
