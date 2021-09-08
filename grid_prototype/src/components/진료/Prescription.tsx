@@ -1,14 +1,23 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { GridFitStyle } from "realgrid";
-import { prescriptionData } from "../../data";
 import { prescriptionList } from "../../grids/Settings_진료";
+import { getAll } from "../../utils/api/ApiService_진료";
 import { useGrid, GridInst, Grid } from "../../utils/hooks/useGrid"
 
 export default function Prescription() {
   const prescriptionGrid = useGrid();
 
-  const gridSetting = ({ grid, view, provider } : GridInst) => {
-    grid.bindData(prescriptionData);
+  const gridSetting = async ({ grid, view, provider } : GridInst) => {    
+    let result = await getAll();   
+    // grid에 데이터 연결
+    grid.bindData(result);
+    // 순번 제거
+    view.setRowIndicator({visible: false});
+    // 풋터 제거
+    view.setFooters({visible: false});
+    // 상태바 제거
+    view.setStateBar({visible: false});
+    // 화면 가득 채우기
     view.setOptions({
       display: {
         fitStyle: GridFitStyle.EVEN_FILL,
@@ -19,7 +28,8 @@ export default function Prescription() {
 
   useEffect(() => {
     prescriptionGrid.handler(gridSetting);
-  })
+  }, [])
+
 
   return (
     <div className="box">

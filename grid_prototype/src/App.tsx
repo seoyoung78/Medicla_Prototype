@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Header from './components/공통/Header';
 import Gnb from './components/공통/Gnb';
@@ -17,6 +17,7 @@ import Prescription from './components/진료/Prescription';
 import Lnb from './components/공통/Lnb';
 import { useRecoilState } from 'recoil';
 import { naviState } from './atoms/Recoils_진료';
+import { getAll } from './utils/api/ApiService_진료';
 
 function App() {
   const [navi, setNavi] = useRecoilState<boolean>(naviState);

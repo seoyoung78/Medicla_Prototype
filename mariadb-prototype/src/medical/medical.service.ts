@@ -9,20 +9,21 @@ export class MedicalService {
     @InjectRepository(Crprsccdmt) private CrprsccdmRepository: Repository<Crprsccdmt>,
   ) {}
 
-  // async getAll(): Promise<any[]> {
-  //   const getAllList = await this.CzcRepository.createQueryBuilder('CZCOMCODMT')
-  //     .select(
-  //       `CZCOMCODMT.frst_rgst_usid,
-  //       CZCOMCODMT.frst_rgdt,
-  //       CZCOMCODMT.last_updt_usid,
-  //       CZCOMCODMT.last_uddt`,
-  //     )
-  //     .from(Czcomcodmt, 'CZCOMCODMT')
-  //     .where(`CZCOMCODMT.cmcd_clsf_id='AU01'`)
-  //     .getRawMany();
-    
-  //   console.log(getAllList);
+  async getAll(): Promise<any[]> {
+    const getAllList = await this.CrprsccdmRepository.createQueryBuilder('CRPRSCCDMT')
+      .select(`
+        CRPRSCCDMT.prscCd,
+        CRPRSCCDMT.prscNm,
+        CRPRSCCDMT.prscClsfCd,
+        CRPRSCCDMT.iotmCd,
+        CRPRSCCDMT.ctnt,
+        CRPRSCCDMT.insnTycd,
+        CRPRSCCDMT.inpyDvcd,
+        CRPRSCCDMT.hsotPrscYn
+      `,)
+      .where(`CRPRSCCDMT.prscClsfCd='B4'`)
+      .getRawMany();
 
-  //   return getAllList;
-  // }
+    return getAllList;
+  }
 }

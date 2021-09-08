@@ -5,8 +5,8 @@ import { MedicalService } from './medical.service';
 export class MedicalController {
   constructor(private medicalService: MedicalService) {}
 
-  // @Get()
-  // async Get(): Promise<any[]> {
-  //   return this.medicalService.getAll();
-  // }
+  @Get()
+  async Get(): Promise<any[]> {
+    return this.medicalService.getAll();
+  }
 }

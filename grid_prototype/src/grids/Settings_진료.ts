@@ -151,83 +151,84 @@ export const prescriptionList = {
   name: 'prescriptionList',
   fields: [
     {
-      fieldName: 'Id',
+      fieldName: 'prsc_cd',
+      dataType: ValueType.TEXT,
+    },
+    {
+      fieldName: 'prsc_nm',
+      dataType: ValueType.CHAR,  // length 지정 필수
+      length: 300
+    },
+    {
+      fieldName: 'prsc_clsf_cd',
       dataType: ValueType.TEXT
     },
     {
-      fieldName: 'Name',
+      fieldName: 'iotm_cd',
       dataType: ValueType.TEXT
     },
     {
-      fieldName: 'Dose',
-      dataType: ValueType.NUMBER
-    },
-    {
-      fieldName: 'Count',
-      dataType: ValueType.NUMBER
-    },
-    {
-      fieldName: 'Date',
-      dataType: ValueType.NUMBER
-    },
-    {
-      fieldName: 'Method',
+      fieldName: 'insn_tycd',
       dataType: ValueType.TEXT
     },
     {
-      fieldName: 'Insurance',
+      fieldName: 'ctnt',
       dataType: ValueType.TEXT
     },
     {
-      fieldName: 'Side',
+      fieldName: 'inpy_dvcd',
+      dataType: ValueType.TEXT
+    },
+    {
+      fieldName: 'hsot_prsc_yn',
       dataType: ValueType.TEXT
     },
   ],
   columns: [
     {
-      fieldName: 'Id',
+      fieldName: 'prsc_cd',
       width: '100',
       header: '처방코드',
       editable: false
     },
     {
-      fieldName: 'Name',
+      fieldName: 'prsc_nm',
       width: '100',
       header: '처방명',
       editable: false
     },
     {
-      fieldName: 'Dose',
+      fieldName: 'prsc_clsf_cd',
       width: '30',
       header: '1회량',
       editable: false
     },
     {
-      fieldName: 'Count',
+      fieldName: 'ctnt',
       width: '30',
       header: '횟수',
       editable: false
     },
     {
-      fieldName: 'Date',
+      fieldName: 'insn_tycd',
       width: '30',
       header: '일수',
       editable: false
     },
     {
-      fieldName: 'Method',
+      fieldName: 'iotm_cd',
       width: '40',
       header: '용법',
       editable: false
     },
     {
-      fieldName: 'Insurance',
+      fieldName: 'inpy_dvcd',
       width: '50',
       header: '급여',
       editable: false
     },
     {
-      fieldName: 'Side',
+      fieldName: 'hsot_prsc_yn',
       width: '50',
       header: '원외',
       editable: false
