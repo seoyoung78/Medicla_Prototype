@@ -1,34 +1,70 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { OBTButton } from 'luna-orbit';
-import { LUXButton } from 'luna-rocket';
+import Header from './components/공통/Header';
+import Gnb from './components/공통/Gnb';
+import SubHeader from './components/공통/SubHeader';
 import './init';
+import CommonLine from './components/공통/CommonLine';
+import PatientDetail from './components/진료/PatientDetail';
+import MedicalMemo from './components/진료/MedicalMemo';
+import AcceptMemo from './components/진료/AcceptMemo';
+import PhysicalReview from './components/진료/PhysicalReview';
+import InspectionResult from './components/진료/InspectionResult';
+import PrescriptionInquiry from './components/진료/PrescriptionInquiry';
+import ProgressNote from './components/진료/ProgressNote';
+import Diagnosis from './components/진료/Diagnosis';
+import Prescription from './components/진료/Prescription';
+import Lnb from './components/공통/Lnb';
+import { useRecoilState } from 'recoil';
+import { naviState } from './atoms/Recoils_진료';
+import { OBTButton } from 'luna-orbit';
 
 function App() {
-  const handleClick = () => {
-    alert("버튼 클릭");
-  }
+  const [navi, setNavi] = useRecoilState<boolean>(naviState);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="his">
+      <Gnb/>
+      <Header/>
 
-      <OBTButton labelText="OrbitButton" onClick={handleClick}/>
-      <LUXButton type="confirm" label="Confirm Blue" blue={true} onClick={handleClick}/>
+      <div className={navi ?  "container open-lnb" : "container"}>
+        <SubHeader/>
+        <Lnb/>
+        <CommonLine/>
+
+        <div className="his-content">
+          <div className="section-wrap">
+            <div className="col">
+              <div className="fr4">
+                {/* 환자정보, 진료메모, 접수메모, 신체사정 */}
+                <PatientDetail/>
+                <div className="col pd0 fx1">
+                  <MedicalMemo/>
+                  <AcceptMemo/>
+                </div>
+                <PhysicalReview/>
+              </div>
+              <div className="fr4">
+                {/* 검사결과, 처방조회 */}
+                <InspectionResult/>
+                <PrescriptionInquiry/>
+              </div>
+              <div className="box fr4">
+                {/* 경과기록, 진단, 처방, 보류/완료 버튼 */}
+                <ProgressNote/>
+                <Diagnosis/>
+                <Prescription/>
+                <div>
+                  <OBTButton labelText='보류'/>
+                  <OBTButton labelText='완료'/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="dimmed" onClick={() => setNavi(false)}></div>
+      </div>
     </div>
   );
 }
