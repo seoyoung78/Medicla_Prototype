@@ -1,15 +1,23 @@
 import '../../init';
 import { useEffect } from "react";
 import { GridFitStyle } from "realgrid";
-import { diagnosisData } from "../../data";
 import { diagnosisList } from "../../grids/Settings_진료";
 import { useGrid, GridInst, Grid } from "../../utils/hooks/useGrid"
+import { getDList } from '../../utils/api/ApiService_진료';
 
 export default function Diagnosis() {
   const diagnosisGrid = useGrid();
 
-  const gridSetting = ({ grid, view, provider } : GridInst) => {
-    grid.bindData(diagnosisData);
+  const gridSetting = async ({ grid, view, provider } : GridInst) => {
+    let list = await getDList();
+    grid.bindData(list);
+    // 순번 제거
+    view.setRowIndicator({visible: false});
+    // 풋터 제거
+    view.setFooters({visible: false});
+    // 상태바 제거
+    view.setStateBar({visible: false});
+    // 화면 가득 채우기
     view.setOptions({
       display: {
         fitStyle: GridFitStyle.EVEN_FILL,

@@ -94,11 +94,11 @@ export const diagnosisList = {
   name: 'diagnosisList',
   fields: [
     {
-      fieldName: 'id',
+      fieldName: 'dgns_cd',
       dataType: ValueType.TEXT
     },
     {
-      fieldName: 'name',
+      fieldName: 'dgns_hnm',
       dataType: ValueType.TEXT
     },
     {
@@ -116,28 +116,24 @@ export const diagnosisList = {
   ],
   columns: [
     {
-      name: 'id',
-      fieldName: 'id',
+      fieldName: 'dgns_cd',
       width: '100',
       header: '진단코드',
       editable: false
     },
     {
-      name: 'name',
-      fieldName: 'name',
+      fieldName: 'dgns_hnm',
       width: '500',
       header: '진단명',
       editable: false
     },
     {
-      name: 'form',
       fieldName: 'form',
       width: '100',
       header: '형태',
       editable: false
     },
     {
-      name: 'mark',
       fieldName: 'mark',
       width: '100',
       header: '특정 기호',

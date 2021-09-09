@@ -30,7 +30,6 @@ export default function Prescription() {
     prescriptionGrid.handler(gridSetting);
   }, [])
 
-
   return (
     <div className="box">
       <div className=""> 

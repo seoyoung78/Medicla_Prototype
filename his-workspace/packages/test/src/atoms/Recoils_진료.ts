@@ -5,6 +5,7 @@ export const naviState = atom<boolean>({
   default: false
 });
 
+// 환자 정보
 export const patientState = atom<any> ({
   key: "patientState",
   default: {

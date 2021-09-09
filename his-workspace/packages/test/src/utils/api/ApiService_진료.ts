@@ -15,3 +15,9 @@ export const getSearchPatient = async (keyword) => {
   let list = await axios.get(API_URL + '/' + keyword);
   return list.data;
 }
+
+// 진단 목록
+export const getDList = async() => {
+  let dlist = await axios.get(API_URL + "/d");
+  return dlist.data
+}

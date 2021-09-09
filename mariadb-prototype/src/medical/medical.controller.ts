@@ -5,6 +5,11 @@ import { MedicalService } from './medical.service';
 export class MedicalController {
   constructor(private medicalService: MedicalService) {}
 
+  @Get('d')
+  async GetD() : Promise<any[]> {
+    return this.medicalService.getDList();
+  }
+
   @Get()
   async Get(): Promise<any[]> {
     return this.medicalService.getAll();
@@ -14,4 +19,5 @@ export class MedicalController {
   async GetP(@Param('keyword') keyword: string): Promise<any[]> {
     return this.medicalService.getPatientsList(keyword);
   }
+
 }

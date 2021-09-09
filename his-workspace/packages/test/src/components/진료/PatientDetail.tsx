@@ -26,11 +26,12 @@ function PatientDetail() {
               <hr/>
               <div>
                 <div>
-                  <span>보험구분</span>
-                  <span>진료구분</span>
+                  <div>보험구분: 건보</div>
+                  <div>진료구분: 초진</div>
                 </div>
                 <div>
-                  <span>보조유형</span>
+                  <div>보조유형: 건강보험</div>
+                  <div>내원경로: 지인추천</div>
                 </div>
               </div>
             </div>
